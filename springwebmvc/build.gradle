@@ -1,0 +1,34 @@
+group 'io.pivotal.workshop'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:2.0.0'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:5.0.1.RELEASE'
+    compile 'org.springframework:spring-context-support:5.0.1.RELEASE'
+    compile 'javax.servlet:javax.servlet-api:4.0.0'
+    compile 'org.freemarker:freemarker:2.3.23'
+}
+
+gretty {
+    contextPath = '/'
+}
